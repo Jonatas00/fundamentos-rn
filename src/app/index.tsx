@@ -1,15 +1,45 @@
-import { ButtonComponent } from "@/components/FirstComponent";
-
-import React from "react";
-import { ScrollView, Text } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
-  return (
-    <ScrollView>
-      <Text>Hello</Text>
-      <ButtonComponent title="Teste" onPress={() => console.warn("44")} />
-      <ButtonComponent title="Botão2" onPress={() => console.warn("3")} />
+  const [number, setNumber] = useState(0);
 
-    </ScrollView >
+  function genRandomNumber(): void {
+    let number: number = Math.floor(Math.random() * 50)
+
+    setNumber(number)
+  }
+
+  return (
+    <View style={style.container}>
+      <Text style={style.title}>Gerar número aleatório</Text>
+
+      <Text>Número aleatório gerado: {number}</Text>
+
+      <TouchableOpacity style={style.input} onPress={genRandomNumber}>
+        <Text>Gerar número</Text>
+      </TouchableOpacity>
+    </View>
   )
-}
+};
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "whitesmoke",
+    gap: 10
+  },
+  title: {
+    fontSize: 32,
+  },
+  input: {
+    backgroundColor: "#99e36b",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "50%",
+    height: 64,
+    borderRadius: 10,
+  }
+});
