@@ -1,27 +1,15 @@
 import { ButtonComponent } from "@/components/FirstComponent";
 
 import React from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
-
-const elements: any = [];
-for (let i = 0; i <= 50; i++) {
-  elements.push(<Text key={i}>Item {i}</Text>);
-}
+import { ScrollView, Text } from "react-native";
 
 export default function Index() {
   return (
-    <ScrollView style={styles.err}>
+    <ScrollView>
       <Text>Hello</Text>
-      <ButtonComponent />
+      <ButtonComponent title="Teste" onPress={() => console.warn("44")} />
+      <ButtonComponent title="Botão2" onPress={() => console.warn("3")} />
 
-      {elements}
-      r
-    </ScrollView>
+    </ScrollView >
   )
 }
-
-const styles = StyleSheet.create({
-  err: {
-    backgroundColor: "whitesmoke"
-  }
-})

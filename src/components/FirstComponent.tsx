@@ -1,8 +1,8 @@
-import { Button } from "react-native";
+import { Button, ButtonProps } from "react-native";
 
-export function ButtonComponent() {
+export function ButtonComponent({ ...rest }: ButtonProps) {
   return <>
-    <Button title="Botão!!!!" onPress={() => console.warn("Botão Clicado!")}>
+    <Button {...rest}>
     </Button>
   </>
 }
