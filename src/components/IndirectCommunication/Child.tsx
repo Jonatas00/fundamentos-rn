@@ -11,7 +11,7 @@ export default function IndirectCommunicationChild(props: any) {
       title="Executar"
       onPress={function () {
         const n = genNum(props.min, props.max);
-        props.onPress(n);
+        props.onPress(n, "Número gerado");
       }}
     ></Button>
   )
