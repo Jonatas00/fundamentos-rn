@@ -1,5 +1,7 @@
+import { DirectComponent } from "@/components/DirectCommunication/Parent";
+import IndirectComponent from "@/components/IndirectCommunication/Parent";
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function Index() {
   const [number, setNumber] = useState(0);
@@ -11,7 +13,12 @@ export default function Index() {
   }
 
   return (
-    <View style={style.container}>
+    <ScrollView style={style.container}>
+
+      <DirectComponent />
+
+      <IndirectComponent />
+
       <Text style={style.title}>Gerar número aleatório</Text>
 
       <Text>Número aleatório gerado: {number}</Text>
@@ -19,15 +26,13 @@ export default function Index() {
       <TouchableOpacity style={style.input} onPress={genRandomNumber}>
         <Text>Gerar número</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 };
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+
     backgroundColor: "whitesmoke",
     gap: 10
   },
