@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "react-native";
 
 export default function IndirectCommunicationChild(props: any) {
@@ -6,12 +7,20 @@ export default function IndirectCommunicationChild(props: any) {
     const fator = max - min + 1;
     return Math.floor(Math.random() * fator) + props.min;
   }
+
+  const [str, setStr] = useState("Número gerado");
+
+  function genText(str: string): string {
+    setStr(str + ":");
+    return str;    
+  }
+
   return (
     <Button
       title="Executar"
       onPress={function () {
-        const n = genNum(props.min, props.max);
-        props.onPress(n, "Número gerado");
+        const n: number = genNum(props.min, props.max);
+        props.onPress(n, genText(str));
       }}
     ></Button>
   )
