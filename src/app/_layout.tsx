@@ -1,7 +1,14 @@
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
+import { StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function layout() {
   return (
-    <Stack ></Stack>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <StatusBar barStyle={'light-content'} />
+        <Slot />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
