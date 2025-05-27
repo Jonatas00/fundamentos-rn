@@ -6,7 +6,7 @@ export default function layout() {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <StatusBar barStyle={'light-content'} />
+        <StatusBar barStyle={'default'} />
         <Slot />
       </SafeAreaView>
     </SafeAreaProvider>
